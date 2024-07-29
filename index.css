@@ -46,12 +46,18 @@ section {
     /* font-size: 84px; */
 }
 
-/* IDs */
-#love {
-    color: red;
-    text-shadow: 2px 2px black;
+.shadow-animation {
+    text-shadow: 5px 5px black;
+    transition: all 2s;
 }
 
+.love {
+    color: red;
+    /* text-shadow: 2px 2px black; */
+}
+
+
+/* IDs */
 #first {
     justify-content: space-evenly;
 }
