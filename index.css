@@ -26,11 +26,11 @@ section {
     /* transition: all 2s; */
 }
 
-.left {
+.left_text {
     text-align: left;
 }
 
-.right {
+.right_text {
     text-align: right;
 }
 
@@ -46,7 +46,7 @@ section {
     /* font-size: 84px; */
 }
 
-.shadow-animation {
+.shadow_animation {
     text-shadow: 5px 5px black;
     transition: all 2s;
 }
@@ -54,6 +54,29 @@ section {
 .love {
     color: red;
     /* text-shadow: 2px 2px black; */
+}
+
+.sliding_box {
+    width: 100%;
+    height: 16.67%;
+    background-color: black;
+    transition: all 2s;
+    /* visibility: hidden; */
+}
+
+.right_box {
+    transform: translateX(-100%);
+    
+}
+
+.left_box {
+    transform: translateX(100%);
+}
+
+.move_to_center {
+    transform: translateX(0%);
+    transition: all 2s;
+    /* visibility: visible; */
 }
 
 
@@ -68,4 +91,9 @@ section {
 
 #second p {
     line-height: 1.3em;
+}
+
+#third {
+    padding: 0;
+    overflow: hidden;
 }

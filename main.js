@@ -8,21 +8,49 @@ const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       const element = entry.target;
+      // console.log(element);
       if (entry.isIntersecting) {
         if (element.classList.contains("text")) {
           return element.classList.add("visible");
         }
 
         if (element.classList.contains("love")) {
-          return element.classList.add("shadow-animation");
+          return element.classList.add("shadow_animation");
+        }
+
+        if (element.classList.contains("sliding_box")) {
+          return element.classList.add("move_to_center");
+        }
+
+        if (element.children[0].classList.contains("sliding_box")) {
+          // console.log("works");
+
+          // convert to array from htmlcollection
+          return [...element.children].forEach((slidingBox) =>
+            slidingBox.classList.add("move_to_center")
+          );
         }
       } else {
+        // resets animations
         if (element.classList.contains("text")) {
           return element.classList.remove("visible");
         }
 
         if (element.classList.contains("love")) {
-          return element.classList.remove("shadow-animation");
+          return element.classList.remove("shadow_animation");
+        }
+
+        if (element.classList.contains("sliding_box")) {
+          console.log("removed");
+          return element.classList.remove("move_to_center");
+        }
+        if (element.children[0].classList.contains("sliding_box")) {
+          // console.log("works");
+
+          // convert to array from htmlcollection
+          return [...element.children].forEach((slidingBox) =>
+            slidingBox.classList.remove("move_to_center")
+          );
         }
       }
     });
@@ -33,3 +61,7 @@ const observer = new IntersectionObserver(
 // OBSERVERS
 document.querySelectorAll(".text").forEach((ele) => observer.observe(ele));
 observer.observe(document.querySelector(".love"));
+observer.observe(document.querySelector("#third"));
+// document
+//   .querySelectorAll(".sliding_box")
+//   .forEach((ele) => observer.observe(ele));
